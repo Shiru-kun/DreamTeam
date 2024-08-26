@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTeamAPI", "DreamTimeAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTeam.UnitTests", "DreamTeam.UnitTests\DreamTeam.UnitTests.csproj", "{75545328-FB29-4562-A5F8-0DDBA33B4616}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.IntegrationTests", "DreamTeam.IntegrationTests\DreamTeam.IntegrationTests.csproj", "{08654E48-4459-4A76-BCDE-1B299B373608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTeam.IntegrationTests", "DreamTeam.IntegrationTests\DreamTeam.IntegrationTests.csproj", "{08654E48-4459-4A76-BCDE-1B299B373608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.IntegrationTestsV2", "DreamTeam.IntegrationTestsV2\DreamTeam.IntegrationTestsV2.csproj", "{E5115381-BF70-4C52-AE15-77C88226A032}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{08654E48-4459-4A76-BCDE-1B299B373608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08654E48-4459-4A76-BCDE-1B299B373608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08654E48-4459-4A76-BCDE-1B299B373608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5115381-BF70-4C52-AE15-77C88226A032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5115381-BF70-4C52-AE15-77C88226A032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5115381-BF70-4C52-AE15-77C88226A032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5115381-BF70-4C52-AE15-77C88226A032}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

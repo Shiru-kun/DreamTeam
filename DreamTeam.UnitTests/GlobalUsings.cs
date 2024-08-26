@@ -1,1 +1,9 @@
 global using NUnit.Framework;
+global using DreamTimeAPI;
+global using DreamTimeAPI.Controllers;
+global using DreamTeamAPI.Models;
+global using FluentAssertions;
+global using Microsoft.Extensions.Logging;
+global using Moq;
+global using Microsoft.EntityFrameworkCore;
+global using DreamTeamAPI.Services;

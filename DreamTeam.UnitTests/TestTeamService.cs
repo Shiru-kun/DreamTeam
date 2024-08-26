@@ -1,16 +1,4 @@
-﻿using DreamTeamAPI.Interfaces;
-using DreamTeamAPI.Models;
-using DreamTeamAPI.Services;
-using FluentAssertions;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-using Moq.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace DreamTeam.UnitTests
 {
     internal class TestTeamService

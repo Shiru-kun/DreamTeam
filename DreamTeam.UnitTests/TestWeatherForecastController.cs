@@ -1,9 +1,4 @@
 ﻿
-using DreamTimeAPI;
-using DreamTimeAPI.Controllers;
-using FluentAssertions;
-using Microsoft.Extensions.Logging;
-using Moq;
 
 namespace DreamTeam.UnitTests
 {

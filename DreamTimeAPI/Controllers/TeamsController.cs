@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DreamTeamAPI.Models;
 using DreamTeamAPI.Interfaces;
-using DreamTeamAPI.Services;
 
 namespace DreamTeamAPI.Controllers
 {

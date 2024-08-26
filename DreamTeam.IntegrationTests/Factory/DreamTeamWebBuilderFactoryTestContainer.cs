@@ -1,42 +1,43 @@
 ﻿using DreamTeamAPI.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
-using Testcontainers.MsSql;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.TestHost;
+using Testcontainers.MsSql;
 
 namespace DreamTeam.IntegrationTests.Factory
 {
-    internal class DreamTeamWebBuilderFactoryTestContainers : WebApplicationFactory<Program>
+    internal class DreamTeamWebBuilderFactoryTestContainer : WebApplicationFactory<Program>
     {
-
         private readonly MsSqlContainer _dbContainer = new MsSqlBuilder()
             .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
             .WithPassword("Strong_password_123!")
             .Build();
+
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.ConfigureTestServices(services =>
             {
-                var descriptor = services
-                    .SingleOrDefault(s => s.ServiceType == typeof(DbContextOptions<DreamTeamContext>));
-                if (descriptor is not null)
+                var descriptor = services.SingleOrDefault(s => s.ServiceType == typeof(DbContextOptions<DreamTeamContext>));
+                if (descriptor != null)
                 {
                     services.Remove(descriptor);
                 }
+
                 services.AddDbContext<DreamTeamContext>(options =>
                     options.UseSqlServer(_dbContainer.GetConnectionString()));
             });
         }
-        public Task InitializeAsync()
+
+        public async Task InitializeAsync()
         {
-            return _dbContainer.StartAsync();
+            await _dbContainer.StartAsync();
         }
 
-        public new Task DisposeAsync()
+        public async Task DisposeAsync()
         {
-            return _dbContainer.StopAsync();
+            await _dbContainer.StopAsync();
         }
     }
 }
