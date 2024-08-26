@@ -57,7 +57,7 @@ namespace DreamTeam.UnitTests
         {
 
             Team? teamMember = null;
-            _contextMock.Setup(c => c.Teams.FindAsync(It.IsAny<Guid>)).ReturnsAsync(teamMember);
+            _contextMock.Setup(c => c.Teams.FindAsync(It.IsAny<Guid>())).ReturnsAsync(teamMember);
 
             var result = await _teamService.GetById(Guid.NewGuid());
             result.Should().BeOfType<NullTeam>();
