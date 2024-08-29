@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DreamTeamAPI.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container mt-4">
+    <h1 class="mb-4">Team members</h1>
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create"  class="btn btn-primary"><i class="fas fa-user-plus"></i> Add new member</a>
+       
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><input type="checkbox" /></th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fullname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+@foreach (var item in Model) {
+        <tr>
+                <td><input type="checkbox" /></td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobTitle)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

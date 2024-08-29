@@ -1,0 +1,3 @@
+https://playwright.dev/dotnet/docs/codegen-intro
+
+bin/Debug/net8.0/playwright.ps1 codegen [site_without_http_part]
