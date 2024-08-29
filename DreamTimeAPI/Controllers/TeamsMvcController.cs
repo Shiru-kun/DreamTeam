@@ -62,7 +62,7 @@ namespace DreamTeamAPI.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(team);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: TeamsMvc/Edit/5
