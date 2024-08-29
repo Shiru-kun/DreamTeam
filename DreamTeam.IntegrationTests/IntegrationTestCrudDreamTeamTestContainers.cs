@@ -1,4 +1,5 @@
-﻿using DreamTeam.IntegrationTests.Factory;
+﻿using DotNet.Testcontainers.Containers;
+using DreamTeam.IntegrationTests.Factory;
 using DreamTeamAPI.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -14,16 +15,19 @@ namespace DreamTeam.IntegrationTests
 {
     public class IntegrationTestCrudDreamTeamTestContainers
     {
-        MsSqlContainer _dbContainer = new MsSqlBuilder()
+        private WebApplicationFactory<Program> _factory;
+        private MsSqlContainer _dbContainer; 
+
+
+        [OneTimeSetUp] 
+        public async Task OneTimeSetUp()
+        {
+            _dbContainer=   new MsSqlBuilder()
           .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
           .WithPassword("Strong_password_123!")
           .Build();
-        [SetUp] public async Task SetUp() { await _dbContainer.StartAsync();}
-        [TearDown] public async Task TearDown() { await _dbContainer.StopAsync(); } 
-        public async Task Should_Get_Team_By_Id()
-        {
-            Guid id = new Guid("babc062c-15aa-483c-a1f3-357deb08b0f7");
-            var factory = new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+            await _dbContainer.StartAsync();
+            _factory=  new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
             {
                 builder.ConfigureTestServices(services =>
                 {
@@ -35,7 +39,26 @@ namespace DreamTeam.IntegrationTests
                     });
                 });
             });
-            using (var scope = factory.Services.CreateScope())
+            using var scope = _factory.Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<DreamTeamContext>();
+            dbContext.Database.Migrate();
+
+        }
+
+        [OneTimeTearDown]
+        public async Task OneTimeTearDown()
+        {
+            await _dbContainer.StopAsync();
+            await _dbContainer.DisposeAsync();
+            _factory.Dispose();
+        }
+
+        [Test]
+        public async Task Should_Get_Team_By_Id()
+        {
+            Guid id = new Guid("babc062c-15aa-483c-a1f3-357deb08b0f7");
+           
+            using (var scope = _factory.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<DreamTeamContext>();
                 context.Database.EnsureCreated();
@@ -44,7 +67,7 @@ namespace DreamTeam.IntegrationTests
                 );
                 await context.SaveChangesAsync();
             }
-            var client = factory.CreateClient();
+            var client = _factory.CreateClient();
             var response = await client.GetAsync($"/api/teams/{id}");
             response.StatusCode.Should().Be(HttpStatusCode.OK);
             var team = await response.Content.ReadFromJsonAsync<Team>();

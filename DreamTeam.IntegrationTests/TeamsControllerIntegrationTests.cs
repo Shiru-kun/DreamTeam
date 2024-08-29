@@ -84,12 +84,12 @@ namespace DreamTeam.IntegrationTests
         }
 
         [Test]
-        public async Task Should_Return_NotFound_For_NoN_Existent_Team()
-        {
-            var nonExistentTeamId = Guid.NewGuid();
-            var response = await _client.GetAsync($"/api/teams/{nonExistentTeamId}");
-            response.StatusCode.Should().Be(HttpStatusCode.NotFound);
-        }
+            public async Task Should_Return_NotFound_For_NoN_Existent_Team()
+            {
+                var nonExistentTeamId = Guid.NewGuid();
+                var response = await _client.GetAsync($"/api/teams/{nonExistentTeamId}");
+                response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+            }
 
         [Test]
         public async Task Should_Update_Team()

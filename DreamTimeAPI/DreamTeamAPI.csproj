@@ -24,7 +24,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <InternalsVisibleTo Include="DreamTeam.IntegrationTests;DreamTeam.IntegrationTestsV2" />
+    <InternalsVisibleTo Include="DreamTeam.IntegrationTests;DreamTeam.IntegrationTestXUnit" />
   </ItemGroup>
 
 
