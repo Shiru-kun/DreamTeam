@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace DreamTeam.IntegrationTests
 {
-    public class TeamsControllerIntegrationTests
+    public class TestCrudDreamTeamInMemoryDatabase
     {
         private HttpClient _client;
         private WebApplicationFactory<Program> _factory;

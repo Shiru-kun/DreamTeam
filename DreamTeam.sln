@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTeam.IntegrationTests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DreamTeam.E2ETests", "DreamTeam.E2ETests\DreamTeam.E2ETests.csproj", "{E38DCFCE-A4DB-4211-AA50-697B410545C2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{0A2C3979-6876-44A2-B8B1-39733D99F685}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DreamTeam.IntegrationTestXUnit", "DreamTeam.IntegrationTestXUnit\DreamTeam.IntegrationTestXUnit.csproj", "{54897FED-0221-4ADD-815A-C950C0FB9435}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{E38DCFCE-A4DB-4211-AA50-697B410545C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E38DCFCE-A4DB-4211-AA50-697B410545C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E38DCFCE-A4DB-4211-AA50-697B410545C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0A2C3979-6876-44A2-B8B1-39733D99F685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A2C3979-6876-44A2-B8B1-39733D99F685}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A2C3979-6876-44A2-B8B1-39733D99F685}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A2C3979-6876-44A2-B8B1-39733D99F685}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54897FED-0221-4ADD-815A-C950C0FB9435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54897FED-0221-4ADD-815A-C950C0FB9435}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54897FED-0221-4ADD-815A-C950C0FB9435}.Release|Any CPU.ActiveCfg = Release|Any CPU

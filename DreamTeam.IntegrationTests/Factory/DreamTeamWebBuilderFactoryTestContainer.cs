@@ -8,12 +8,13 @@ using Testcontainers.MsSql;
 
 namespace DreamTeam.IntegrationTests.Factory
 {
-    internal class DreamTeamWebBuilderFactoryTestContainer : WebApplicationFactory<Program>
+    public class DreamTeamWebBuilderFactoryTestContainer : WebApplicationFactory<Program>
     {
-        private readonly MsSqlContainer _dbContainer = new MsSqlBuilder()
-            .WithImage("mcr.microsoft.com/mssql/server:2022-latest")
-            .WithPassword("Strong_password_123!")
+        private readonly MsSqlContainer _dbContainer;
+        public DreamTeamWebBuilderFactoryTestContainer() {
+            _dbContainer = new MsSqlBuilder()
             .Build();
+        }
 
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
